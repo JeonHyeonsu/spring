@@ -13,8 +13,9 @@ public class QuizMemberVO {
 	private String username;
 	private int point;
 	private String email;
-	
+	private String profile_img;
+	private String profile;
 
 	private Date reg_date;
-	private List<AuthVO1> authList;
+	private List<AuthVO> auth;
 }

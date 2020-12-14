@@ -9,25 +9,22 @@
             <article class="full-article-body">
                 <!-- /.panel-heading -->
 
-         	<table class="table table-striped table-bordered table-hover">
+         	<table class="table table-striped table-bordered table-hover rank-img">
                <thead>
                   <tr>
                      <th>순위</th>
-                     <th>프로필</th>
-                     <th>닉네임</th>
+                     <th>프로필사진</th>
+                     <th>아이디</th>
                      <th>포인트</th>
                   </tr>
                </thead>
 
                <c:forEach items="${rank}" var="rank">
                   <tr>
-                     <td><c:out value="${quiz.quiz_idx}" /></td>
-                     <td><a class='move' href='<c:out value="${quiz.quiz_idx}"/>'><c:out value="${quiz.question}" /></td>
-                     <td><c:out value="${quiz.answer}" /></td>
-                     <td><c:out value="${quiz.type_idx}" /></td>
-                     <td><c:out value="${quiz.id}" /></td>
-                     <td><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${quiz.reg_date}" /></td>
-                     <td><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${quiz.updatedate}" /></td>
+                     <td><c:out value="${rank.rnk}" /></td>
+                     <td><img src="/resources/upload/<c:out value="${rank.profile_img }"/>"/></td>
+                     <td><a class='move' href='<c:out value="${rank.id}"/>'><c:out value="${rank.id}" />
+                     <td><c:out value="${rank.point}" /></td>
                   </tr>
                </c:forEach>
             </table>
@@ -55,7 +52,7 @@
             <!--  Pagination 끝 -->
             
             <!-- 페이징 Form 시작 -->
-            <form id='actionForm' action="/front/quiz_jp" method='get'>
+            <form id='actionForm' action="/front/rank" method='get'>
             <input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
             <input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
             <input type='hidden' name='type' value='<c:out value="${ pageMaker.cri.type }"/>'>
@@ -63,12 +60,10 @@
             </form>
             <!-- 페이징 Form 끝 -->
             </article>
-            <button class="btn btn-success">확인</button>
-            <button class="btn btn-danger">취소</button>
         </div>
     </div>
 </section>
-<<script type="text/javascript">
+<script type="text/javascript">
 
 var actionForm = $("#actionForm");
 
@@ -80,19 +75,13 @@ $(".paginate_button a").on("click", function(e) {
    actionForm.submit();
 });
 
-var quizArray = new Array();
-<c:forEach items="${quiz}" var="quiz">
+//상세보기 클릭 이벤트
+$(".move").on("click",function(e) {
+   e.preventDefault();
+   actionForm.append("<input type='hidden' name='id' value='" + $(this).attr("href")   + "'>");
+   actionForm.attr("action", "/front/userprofile");
+   actionForm.submit();
+});
 
-quizArray[0] = ${quiz.answer}
-quizArray[1] = ${quiz.example1}
-quizArray[2] = ${quiz.example2}
-quizArray[3] = ${quiz.example3}
-</c:forEach>
-function showquiz() {
-	var Num = Math.round(Math.random()*4);
-	var quiz = document.getElementById("quiz");
-	quiz.src = quizArray[Num];
-	
-}
 </script>
 <%@include file="footer.jsp"%>

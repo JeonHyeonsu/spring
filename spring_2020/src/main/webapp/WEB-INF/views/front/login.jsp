@@ -11,22 +11,22 @@
      <div style="margin-left: 85px;margin-bottom: 20px;">
         <a class="navbar-brand" href="/"><img src="/resources/img/quizlogo.jpg" alt="Logo"></a></br>
      </div>
-    <form action="/front/index" method="POST" class="form login">
-    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+    <form action="/login" method="POST" class="form login" >
 
       <div class="form__field">
         <label for="login__username"><svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#user"></use></svg><span class="hidden">ID</span></label>
-        <input id="login__username" type="text" name="id" class="form__input" placeholder="ID" required>
+        <input id="login__username" type="text" name="username" class="form__input" placeholder="ID" required>
       </div>
 
       <div class="form__field">
         <label for="login__password"><svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#lock"></use></svg><span class="hidden">Password</span></label>
-        <input id="login__password" type="password" name="pwd" class="form__input" placeholder="Password" required>
+        <input id="login__password" type="password" name="password" class="form__input" placeholder="Password" required>
       </div>
 
       <div class="form__field">
         <input type="submit" value="로그인">
       </div>
+      <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
     </form>
 
     <p class="text--center">Not a member? <a href="/front/membermake">Sign up now</a> <svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/icons.svg#arrow-right"></use></svg></p>

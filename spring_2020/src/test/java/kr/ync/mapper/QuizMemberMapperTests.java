@@ -1,11 +1,15 @@
 package kr.ync.mapper;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import kr.ync.domain.BoardVO;
+import kr.ync.domain.Criteria;
 import kr.ync.domain.QuizMemberVO;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
@@ -19,8 +23,10 @@ public class QuizMemberMapperTests {
 //	private QuizMapper mapper;
 	
 	
-	@Setter(onMethod_ = @Autowired)
+	//@Setter(onMethod_ = @Autowired)
+	@Autowired
 	private QuizMemberMapper mapper;
+	
 
 //	@Test
 //	public void testGetList() {
@@ -59,18 +65,18 @@ public class QuizMemberMapperTests {
 //		
 //	}
 	
-	@Test
-	public void testinsert() {
-		QuizMemberVO member = new QuizMemberVO();
-		
-		member.setId("전현수55");
-		member.setPwd("q1w2e3");
-		member.setUsername("전현수킹");
-		member.setEmail("emforhs1236@naver.com");
-		
-		mapper.insert(member);
-	      
-	}
+//	@Test
+//	public void testinsert() {
+//		QuizMemberVO member = new QuizMemberVO();
+//		
+//		member.setId("test53");
+//		member.setPwd("q1w2e31");
+//		member.setUsername("동완킹3");
+//		member.setEmail("tlsehddhks@naver.com");
+//		
+//		mapper.insert(member);
+//	      
+//	}
 	
 	
 //
@@ -90,11 +96,12 @@ public class QuizMemberMapperTests {
 //	@Test
 //	public void testRead() {
 //
+//		
 //		// 존재하는 게시물 번호로 테스트
-//		BoardVO board = mapper.read(5L);
+//		QuizMemberVO member = mapper.read("admin70");
 //
-//		log.info(board);
-//
+//		log.info(member);
+//		//member.getAuth().forEach(authVO -> log.info(authVO));
 //	}
 //
 //	@Test
@@ -103,20 +110,20 @@ public class QuizMemberMapperTests {
 //		log.info("DELETE COUNT: " + mapper.delete(3L));
 //	}
 //
-//	@Test
-//	public void testUpdate() {
-//
-//		BoardVO board = new BoardVO();
-//		// 실행전 존재하는 번호인지 확인할 것
-//		board.setBno(5L);
-//		board.setTitle("수정된 제목");
-//		board.setContent("수정된 내용");
-//		board.setWriter("user00");
-//
-//		int count = mapper.update(board);
-//		log.info("UPDATE COUNT: " + count);
-//
-//	}
+	@Test
+	public void testUpdate() {
+
+		QuizMemberVO member = new QuizMemberVO();
+		// 실행전 존재하는 번호인지 확인할 것
+		member.setId("admin70");
+		member.setUsername("앙잉옹");
+		member.setProfile("프로필프로필");
+		member.setProfile_img("");
+
+		int count = mapper.update(member);
+		log.info("UPDATE COUNT: " + count);
+
+	}
 //
 //	@Test
 //	public void testPaging() {

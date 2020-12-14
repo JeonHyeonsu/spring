@@ -48,29 +48,6 @@
                   </tr>
                </c:forEach>
             </table>
-            <!-- <table class="table table-striped table-bordered table-hover">
-               <thead>
-                  <tr>
-                     <th>#번호</th>
-                     <th>퀴즈명</th>
-                     <th>정답</th>
-                     <th>작성자</th>
-                     <th>작성일</th>
-                     <th>수정일</th>
-                  </tr>
-               </thead>
-
-                <c:forEach items="${quiz}" var="quiz">
-                  <tr>
-                     <td><c:out value="${quiz.quiz_idx}" /></td>
-                     <td><a class='move' href='<c:out value="${quiz.quiz_idx}"/>'><c:out value="${quiz.question}" />
-                     </a> </td>
-                     <td><c:out value="${quiz.id}" /></td>
-                 
-                  </tr>
-               </c:forEach>
-               
-            </table>-->
             
             <!-- 검색 영역 시작 -->
             <div class='row'>
@@ -196,7 +173,7 @@
       }
       
       $("#regBtn").on("click", function() {
-         self.location = "/admin/register";
+         self.location = "/front/register";
       });
       
       var actionForm = $("#actionForm");

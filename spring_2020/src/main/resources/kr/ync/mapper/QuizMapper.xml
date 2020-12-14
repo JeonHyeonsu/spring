@@ -29,10 +29,28 @@
       ]]>
    </select>
    
+   <select id="getuserList" resultType="kr.ync.domain.QuizVO">
+   <![CDATA[
+      select * from quiz where quiz_idx > 0 AND id LIKE '#{id}'
+      order by quiz_idx desc
+      ]]>
+   </select>
+   
    <select id="getList_jp" resultType="kr.ync.domain.QuizVO">
    <![CDATA[
       select * from quiz where type_idx = 1
-      order by quiz_idx desc
+      ]]>
+   </select>
+   
+   <select id="getList_ns" resultType="kr.ync.domain.QuizVO">
+   <![CDATA[
+      select * from quiz where type_idx = 2
+      ]]>
+   </select>
+   
+   <select id="getList_cm" resultType="kr.ync.domain.QuizVO">
+   <![CDATA[
+      select * from quiz where type_idx = 3
       ]]>
    </select>
    
@@ -50,12 +68,12 @@
 
       <selectKey keyProperty="quiz_idx" order="BEFORE"
          resultType="int">
-         select seq_board.nextval from dual
+         select seq_quiz_idx.nextval from dual
       </selectKey>
 
-      insert into quiz (quiz_idx,question,answer, example1, example2, example3, id)
+      insert into quiz (quiz_idx,question,answer, example1, example2, example3, id, type_idx)
       values (#{quiz_idx},
-      #{question}, #{answer}, #{example1}, #{example2}, #{example3}, #{id})
+      #{question}, #{answer}, #{example1}, #{example2}, #{example3}, #{id}, #{type_idx})
    </insert>
    
    <select id="read" resultType="kr.ync.domain.QuizVO">
@@ -68,7 +86,7 @@
    </delete>
  
    <update id="update">
-      update quiz_idx
+      update quiz
       set question= #{question},
       answer=#{answer},
       example1 = #{example1},
@@ -199,7 +217,6 @@
         WHERE rn > (#{pageNum} -1) * #{amount}   
       ]]>
    </select> -->
-   
    <select id="getListWithPaging" resultType="kr.ync.domain.QuizVO">
       <![CDATA[
       SELECT   quiz_idx,
@@ -210,8 +227,9 @@
             example3,
             id,
             reg_date,
+            type_idx,
             updatedate
-      FROM   (SELECT /*+INDEX_DESC(quiz pk_board) */
+      FROM   (SELECT /*+INDEX_DESC(quiz XPK퀴즈) */
                     rownum rn,
                     quiz_idx,
                     question,
@@ -221,17 +239,165 @@
             		example3,
             		id,
             		reg_date,
+            		type_idx,
             		updatedate
                FROM   quiz
-            WHERE 
+            WHERE
         ]]>
       <include refid="criteria"></include> 
       
       <![CDATA[    
                rownum <= #{pageNum} * #{amount}
                )
-        WHERE rn > (#{pageNum} -1) * #{amount}   
-        order by quiz_idx desc
+        WHERE rn > (#{pageNum} -1) * #{amount}
+      ]]>
+   </select>
+   
+   <select id="getListWithPagingjp" resultType="kr.ync.domain.QuizVO">
+      <![CDATA[
+      SELECT   quiz_idx,
+            question,
+            answer,
+            example1,
+            example2,
+            example3,
+            id,
+            reg_date,
+            type_idx,
+            updatedate
+      FROM   (SELECT /*+INDEX_DESC(quiz XPK퀴즈) */
+                    rownum rn,
+                    quiz_idx,
+                    question,
+            		answer,
+            		example1,
+            		example2,
+            		example3,
+            		id,
+            		reg_date,
+            		type_idx,
+            		updatedate
+               FROM   quiz
+            WHERE
+            type_idx = 1 AND
+        ]]>
+      <include refid="criteria"></include> 
+      
+      <![CDATA[    
+               rownum <= #{pageNum} * #{amount}
+               )
+        WHERE rn > (#{pageNum} -1) * #{amount}
+      ]]>
+   </select>
+   
+   <select id="getListWithPagingns" resultType="kr.ync.domain.QuizVO">
+      <![CDATA[
+      SELECT   quiz_idx,
+            question,
+            answer,
+            example1,
+            example2,
+            example3,
+            id,
+            reg_date,
+            type_idx,
+            updatedate
+      FROM   (SELECT /*+INDEX_DESC(quiz XPK퀴즈) */
+                    rownum rn,
+                    quiz_idx,
+                    question,
+            		answer,
+            		example1,
+            		example2,
+            		example3,
+            		id,
+            		reg_date,
+            		type_idx,
+            		updatedate
+               FROM   quiz
+            WHERE
+            type_idx = 2 AND
+        ]]>
+      <include refid="criteria"></include> 
+      
+      <![CDATA[    
+               rownum <= #{pageNum} * #{amount}
+               )
+        WHERE rn > (#{pageNum} -1) * #{amount}
+      ]]>
+   </select>
+   
+   <select id="getListWithPagingcm" resultType="kr.ync.domain.QuizVO">
+      <![CDATA[
+      SELECT   quiz_idx,
+            question,
+            answer,
+            example1,
+            example2,
+            example3,
+            id,
+            reg_date,
+            type_idx,
+            updatedate
+      FROM   (SELECT /*+INDEX_DESC(quiz XPK퀴즈) */
+                    rownum rn,
+                    quiz_idx,
+                    question,
+            		answer,
+            		example1,
+            		example2,
+            		example3,
+            		id,
+            		reg_date,
+            		type_idx,
+            		updatedate
+               FROM   quiz
+            WHERE
+            type_idx = 3 AND
+        ]]>
+      <include refid="criteria"></include> 
+      
+      <![CDATA[    
+               rownum <= #{pageNum} * #{amount}
+               )
+        WHERE rn > (#{pageNum} -1) * #{amount}
+      ]]>
+   </select>
+   
+   <select id="getuserListWithPaging" resultType="kr.ync.domain.QuizVO">
+      <![CDATA[
+      SELECT   quiz_idx,
+            question,
+            answer,
+            example1,
+            example2,
+            example3,
+            id,
+            reg_date,
+            type_idx,
+            updatedate
+      FROM   (SELECT /*+INDEX_DESC(quiz XPK퀴즈) */
+                    rownum rn,
+                    quiz_idx,
+                    question,
+            		answer,
+            		example1,
+            		example2,
+            		example3,
+            		id,
+            		reg_date,
+            		type_idx,
+            		updatedate
+               FROM   quiz
+            WHERE
+            id LIKE '#{id}' AND
+        ]]>
+      <include refid="criteria"></include> 
+      
+      <![CDATA[    
+               rownum <= #{pageNum} * #{amount}
+               )
+        WHERE rn > (#{pageNum} -1) * #{amount}
       ]]>
    </select>
    
@@ -244,12 +410,12 @@
    </select>
     -->
    <select id="getTotalCount" resultType="int">
-      select count(*) from quiz where 
+      select count(*) from quiz where
       
       <include refid="criteria"></include>
       
       <![CDATA[
-      quiz_idx > 0
+      quiz_idx > 0 
       ]]>
    </select>
    

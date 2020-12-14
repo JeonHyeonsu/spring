@@ -20,21 +20,31 @@ public interface QuizMapper {
 	
 	public int quiz_jp(QuizVO quizjp);
 	
+	public int quiz_ns(QuizVO quizns);
+	
+	public int quiz_cm(QuizVO quizcm);
+	
 	public Integer insertSelectKey(QuizVO quiz);
 	
 	public QuizVO read(int quiz_idx);
 	
 	public int delete(int quiz_idx);
 
-	public int update(QuizVO board);
+	public int update(QuizVO quiz);
 	
 	public int getTotalCount(Criteria cri);
 	
 	public int getTotalCount(CriteriaAdmin cri);
 	
-	public List<QuizVO> getListWithPaging(Criteria cri);
+	public List<QuizVO> getListWithPagingjp(Criteria cri);
+	
+	public List<QuizVO> getListWithPagingns(Criteria cri);
+	
+	public List<QuizVO> getListWithPagingcm(Criteria cri);
 	
 	public List<QuizVO> getListWithPaging(CriteriaAdmin cri);
+
+	public List<QuizVO> getuserListWithPaging(CriteriaAdmin cri);
 	
 	
 }

@@ -28,50 +28,45 @@
       ]]>
    </select>
    
+   <select id="getRank" resultType="kr.ync.domain.QuizMemberVO">
+   <![CDATA[
+      select * from member
+      order by point desc
+      ]]>
+   </select>
+   
+   <select id="read" resultType="kr.ync.domain.QuizMemberVO">
+      select * from member where id =   #{id}
+   </select>
+   
+   <select id="view" resultType="kr.ync.domain.QuizMemberVO">
+      select * from member where id =   #{id}
+   </select>
+   
+   
+   
+   
    <insert id="insert">
       insert into member (id, pwd, username, email)
       values (#{id}, #{pwd}, #{username}, #{email})
    </insert>
-   
-   <insert id="rank">
-   <![CDATA[
-   		SELECT * FROM MEMBER ORDER BY POINT DESC
-   ]]>
-   </insert>
-   
-   <insert id="insertSelectKey">
-
-      <selectKey keyProperty="bno" order="BEFORE"
-         resultType="Long">
-         select seq_quiz_idx.nextval from dual
-      </selectKey>
-
-      insert into quiz (quiz_idx, question, answer, id, example1, example2, example3)
-      values (#{quiz_idx},
-      #{question}, #{answer}, #{id}, #{example1}, #{example2}, #{example3})
-   </insert>
-   
-   <select id="read" resultType="kr.ync.domain.QuizVO">
-      select * from quiz where quiz_idx =   #{quiz_idx}
-   </select>
 
 
-   <!--<delete id="delete">
+   <delete id="delete">
       delete tbl_board where bno = #{bno}
    </delete>
  
    <update id="update">
-      update tbl_board
-      set title= #{title},
-      content=#{content},
-      writer = #{writer},
-      file_1 = #{file_1},
-      file_2 = #{file_2},
-      file_3 = #{file_3},
-      updateDate = sysdate
-      where bno =
-      #{bno}
-   </update>-->
+      update member
+      set id= #{id},
+      username= #{username},
+      email = #{email},
+      profile_img = #{profile_img},
+      profile = #{profile}
+      
+      where id =
+      #{id}
+   </update>
    
    <!-- <select id="getListWithPaging" resultType="kr.ync.domain.BoardVO">
       <![CDATA[
@@ -164,7 +159,7 @@
    </select>
     -->
    
-   <!-- <select id="getListWithPaging" resultType="kr.ync.domain.BoardVO">
+   <!-- <select id="getListWithPaging" resultType="kr.ync.domain.RankVO">
       <![CDATA[
       SELECT   bno,
             title,
@@ -191,60 +186,46 @@
                )
         WHERE rn > (#{pageNum} -1) * #{amount}   
       ]]>
-   </select> -->
+   </select>-->
    
-   <!--<select id="getListWithPaging" resultType="kr.ync.domain.QuizVO">
+   <select id="getListWithPaging" resultType="kr.ync.domain.RankVO">
       <![CDATA[
-      SELECT   quiz_idx,
-            question,
-            answer,
-            example1,
-            example2,
-            example3,
-            id,
-            reg_date,
-            updatedate,
-            type_idx
-      FROM   (SELECT (quiz) */
-                    rownum rn,
-                    bno,
-                    title,
-                    content,
-                    writer,
-                    regdate,
-                    updatedate,
-                    replycnt
-               FROM   quiz
-            WHERE 
+      SELECT	point,
+				id,
+				profile_img,
+				rnk
+	  FROM	(SELECT	ROWNUM rn,
+					point,
+					id,
+					profile_img,
+					rnk
+			 FROM	(SELECT	POINT,
+							ID, 
+							profile_img,
+							RANK() OVER (ORDER BY POINT DESC) AS rnk
+					 FROM	MEMBER
+					)
+			 WHERE  rownum <= #{pageNum} * #{amount}
+			)
         ]]>
       <include refid="criteria"></include> 
       
       <![CDATA[    
-               rownum <= #{pageNum} * #{amount}
-               )
+               
+               
         WHERE rn > (#{pageNum} -1) * #{amount}   
       ]]>
-   </select>-->
-   
-   <!-- 
-   <select id="getTotalCount" resultType="int">
-      <![CDATA[
-      select count(*) from tbl_board where 
-      bno > 0
-      ]]>
    </select>
-    -->
-   <!--<select id="getTotalCount" resultType="int">
-      select count(*) from tbl_board where 
+   
+    
+   <select id="getTotalCount" resultType="int">
+      select count(*) from member where 
       
       <include refid="criteria"></include>
       
       <![CDATA[
-      bno > 0
+      point > 0
       ]]>
    </select>
-   
-   <update id="updateReplyCnt">
-      UPDATE tbl_board SET replycnt = replycnt + #{amount} WHERE bno = #{bno}
-   </update> -->
+
 </mapper>

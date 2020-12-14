@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.ync.mapper.QuizMemberMapper">
+<mapper namespace="kr.ync.mapper.QuizUserMemberMapper">
 
    <resultMap type="kr.ync.domain.QuizMemberVO" id="memberMap">
       <id property="id" column="id"/>
@@ -9,11 +9,11 @@
       <result property="username" column="username"/>
       <result property="reg_date" column="reg_date"/>
       <result property="email" column="email"/>
-      <collection property="authList" resultMap="authMap">
+      <collection property="auth" resultMap="authMap">
       </collection>
    </resultMap>
    
-   <resultMap type="kr.ync.domain.AuthVO1" id="authMap">
+   <resultMap type="kr.ync.domain.AuthVO" id="authMap">
       <result property="id" column="id"/>
       <result property="auth" column="auth"/>
    </resultMap>
@@ -30,6 +30,7 @@
             username,
             reg_date,
             email,
+            profile_img,
             auth
    FROM     member
    WHERE    id = #{id} 

@@ -27,9 +27,9 @@ public class MemberTests {
 	@Test
 	public void testInsertMember() {
 
-		String sql = "insert into tbl_member(userid, userpw, username, auth) values (?,?,?,?)";
+		String sql = "insert into member(id, pwd, username, email, auth) values (?,?,?,?,?)";
 
-		for (int i = 0; i < 100; i++) {
+		for (int i = 0; i < 90; i++) {
 
 			Connection con = null;
 			PreparedStatement pstmt = null;
@@ -40,23 +40,26 @@ public class MemberTests {
 
 				pstmt.setString(2, pwencoder.encode("pw" + i));
 
-				if (i < 80) {
+				if (i < 30) {
 
 					pstmt.setString(1, "user" + i);
 					pstmt.setString(3, "일반사용자" + i);
-					pstmt.setString(4, "ROLE_USER");
+					pstmt.setString(4, "email" + i + "@naver.com");
+					pstmt.setString(5, "ROLE_USER");
 
-				} else if (i < 90) {
+				} else if (i < 30) {
 
 					pstmt.setString(1, "manager" + i);
 					pstmt.setString(3, "운영자" + i);
-					pstmt.setString(4, "ROLE_MEMBER");
+					pstmt.setString(4, "email" + i + "@naver.com");
+					pstmt.setString(5, "ROLE_MEMBER");
 
 				} else {
 
 					pstmt.setString(1, "admin" + i);
 					pstmt.setString(3, "관리자" + i);
-					pstmt.setString(4, "ROLE_ADMIN");
+					pstmt.setString(4, "email" + i + "@naver.com");
+					pstmt.setString(5, "ROLE_ADMIN");
 
 				}
 

@@ -51,6 +51,7 @@ public class BoardController {
 
 	}
 	
+
 	@PreAuthorize("isAuthenticated()")
 	@PostMapping("/register")
 	public String register(MultipartFile[] uploadFile, BoardVO board, RedirectAttributes rttr) {
@@ -88,8 +89,8 @@ public class BoardController {
 		log.info("/get or modify");
 		model.addAttribute("board", service.get(bno));
 	}
-
-	@PreAuthorize("principal.username == #board.writer")
+	
+	@PreAuthorize("principal.username == #user.id")
 	@PostMapping("/modify")
 	public String modify(MultipartFile[] uploadFile, BoardVO board, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr) {
 		log.info("modify:" + board);

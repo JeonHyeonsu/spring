@@ -8,7 +8,7 @@
         <div class="col-md-8">
             <div class="row">
                 <article class="col-md-12 news-card">
-                    <a href="/pokemon-web/pages/notice/post/6.html">
+                    <a href="">
                         <div class="news-card-title">
                             <img src="/resources/img/twilight-wings-debut-169-en.jpg" alt="">
                         </div>
@@ -34,7 +34,7 @@
                     </a>
                 </article>
                 <article class="col-md-12 news-card">
-                    <a href="/admin/list">
+                    <a href="/front/userRegister">
                         <div class="news-card-title news-card-right">
                             <img src="/resources/img/quizmake.png" alt="">
                         </div>
@@ -59,7 +59,7 @@
             </a>
         </article>
         <article class="col-md-4 news-card">
-            <a href="/pokemon-web/pages/notice/post/3.html">
+            <a href="/front/quiz_ns">
                 <div class="news-card-title">
                     <img src="/resources/img/quiz_ns.jpg" alt="">
                 </div>
@@ -69,7 +69,7 @@
             </a>
         </article>
         <article class="col-md-4 news-card">
-            <a href="/pokemon-web/pages/notice/post/2.html">
+            <a href="/front/quiz_cm">
                 <div class="news-card-title">
                     <img src="/resources/img/quiz_cm.jpg" alt="">
                 </div>

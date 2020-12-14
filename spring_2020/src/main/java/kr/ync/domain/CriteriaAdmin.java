@@ -47,7 +47,6 @@ public class CriteriaAdmin {
 				.queryParam("amount", this.getAmount())
 				.queryParam("type", this.getType())
 				.queryParam("keyword", this.getKeyword());
-		
 		return builder.toUriString();
 	}
 }

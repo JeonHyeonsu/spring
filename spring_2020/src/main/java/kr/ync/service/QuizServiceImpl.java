@@ -23,6 +23,25 @@ public class QuizServiceImpl implements QuizService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	@Override
+	public List<QuizVO> getList_jp() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<QuizVO> getList_ns() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<QuizVO> getList_cm() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 	@Override
 	public int getTotal(Criteria cri) {
@@ -31,9 +50,21 @@ public class QuizServiceImpl implements QuizService {
 	}
 
 	@Override
-	public List<QuizVO> getListWithPaging(Criteria cri) {
+	public List<QuizVO> getListWithPagingjp(Criteria cri) {
 		// TODO Auto-generated method stub
-		return mapper.getListWithPaging(cri);
+		return mapper.getListWithPagingjp(cri);
+	}
+	
+	@Override
+	public List<QuizVO> getListWithPagingcm(Criteria cri) {
+		// TODO Auto-generated method stub
+		return mapper.getListWithPagingcm(cri);
+	}
+
+	@Override
+	public List<QuizVO> getListWithPagingns(Criteria cri) {
+		// TODO Auto-generated method stub
+		return mapper.getListWithPagingns(cri);
 	}
 
 	@Override
@@ -53,5 +84,44 @@ public class QuizServiceImpl implements QuizService {
 		// TODO Auto-generated method stub
 		return mapper.getListWithPaging(cri);
 	}
+
+	@Override
+	public void register(QuizVO quiz) {
+		// TODO Auto-generated method stub
+		log.info("register......" + quiz);
+
+		mapper.insertSelectKey(quiz);
+	}
+
+	@Override
+	public boolean modify(QuizVO quiz) {
+		// TODO Auto-generated method stub
+		return mapper.update(quiz) == 1;
+	}
+
+	@Override
+	public boolean remove(int quiz_idx) {
+		// TODO Auto-generated method stub
+		return mapper.delete(quiz_idx) == 1;
+	}
+
+	@Override
+	public void userRegister(QuizVO quiz) {
+		// TODO Auto-generated method stub
+		mapper.insertSelectKey(quiz);
+	}
+
+	@Override
+	public List<QuizVO> getuserList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<QuizVO> getuserListWithPaging(CriteriaAdmin cri) {
+		// TODO Auto-generated method stub
+		return mapper.getuserListWithPaging(cri);
+	}
+
 
 }

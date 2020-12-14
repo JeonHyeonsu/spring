@@ -14,34 +14,23 @@
                 <div>
                 <c:out value="${quiz.question}" /></br></br>
                 </div>
+                
                 <div>
-                <input type="button" id="quiz"></input>
+                <form>
+                <input type="radio"><button class="btnimg btnsize" >&nbsp;<img src="/resources/img/1.PNG"></button> : <span id="quiz0"></span></br>
+ 
+                <input type="radio"><button class="btnimg btnsize" >&nbsp;<img src="/resources/img/2.PNG"></button> : <span id="quiz1"></span></br>
+
+                <input type="radio"><button class="btnimg btnsize" >&nbsp;<img src="/resources/img/3.PNG"></button> : <span id="quiz2"></span></br>
+
+                <input type="radio"><button class="btnimg btnsize" >&nbsp;<img src="/resources/img/4.PNG"></button> : <span id="quiz3"></span>
+                </form>
+
+
                 </div>
                </c:forEach>
-            </table>
-            <!-- <table class="table table-striped table-bordered table-hover">
-               <thead>
-                  <tr>
-                     <th>#번호</th>
-                     <th>퀴즈명</th>
-                     <th>정답</th>
-                     <th>작성자</th>
-                     <th>작성일</th>
-                     <th>수정일</th>
-                  </tr>
-               </thead>
-
-                <c:forEach items="${quiz}" var="quiz">
-                  <tr>
-                     <td><c:out value="${quiz.quiz_idx}" /></td>
-                     <td><a class='move' href='<c:out value="${quiz.quiz_idx}"/>'><c:out value="${quiz.question}" />
-                     </a> </td>
-                     <td><c:out value="${quiz.id}" /></td>
-                 
-                  </tr>
-               </c:forEach>
                
-            </table>-->
+            </table>
             
             <!--  Pagination 시작 -->
             <div class='pull-left'>
@@ -79,7 +68,7 @@
         </div>
     </div>
 </section>
-<<script type="text/javascript">
+<script type="text/javascript">
 
 var actionForm = $("#actionForm");
 
@@ -91,19 +80,48 @@ $(".paginate_button a").on("click", function(e) {
    actionForm.submit();
 });
 
+//$(".btn-success").on("click",function(e) {
+//    e.preventDefault();
+//   actionForm.append("<input type='hidden' name='quiz_idx' value='" + <c:out value="${quiz.quiz_idx}" />   + "'>");
+//    actionForm.append("<input type='hidden' name='id' value='" + <sec:authentication property="principal.username"/>  + "'>");
+//    actionForm.append("<input type='hidden' name='question' value='" + $(this).attr("href")   + "'>");
+//    actionForm.attr("action", "/front/quizCheck");
+//    actionForm.submit();
+// });
 var quizArray = new Array();
 <c:forEach items="${quiz}" var="quiz">
 
-quizArray[0] = ${quiz.answer}
-quizArray[1] = ${quiz.example1}
-quizArray[2] = ${quiz.example2}
-quizArray[3] = ${quiz.example3}
+quizArray[0] = '${quiz.answer}';
+quizArray[1] = '${quiz.example1}';
+quizArray[2] = '${quiz.example2}';
+quizArray[3] = '${quiz.example3}';
 </c:forEach>
-function showquiz() {
-	var Num = Math.round(Math.random()*4);
-	var quiz = document.getElementById("quiz");
-	quiz.src = quizArray[Num];
-	
+/* const shuffleArray = arr => arr.sort(() => Math.random() - 0.5); */
+
+
+const shuffleArray = arr => arr
+.map(a => [Math.random(), a])
+.sort((a, b) => a[0] - b[0])
+.map(a => a[1]);
+
+var arr_shuffle = shuffleArray(quizArray);
+console.log(shuffleArray(quizArray));
+
+var str = [];
+for(var i = 0; i < 4; i++ ){
+	str += arr_shuffle[i];
+	document.getElementById("quiz"+ [i]).innerHTML = str;
+//	$("input[name=question0]").val(str);
+	str = [];
 }
+
+$("button[data-oper='question']").on("click", function(e) {
+	var answer = document.getElementById("question").value;
+	console.log(answer);
+
+});
+
+
+
 </script>
 <%@include file="footer.jsp"%>

@@ -117,7 +117,7 @@ public class QuizMapperTests {
 	    cri.setAmount(3);
 
 
-		List<QuizVO> list = mapper.getListWithPaging(cri);
+		List<QuizVO> list = mapper.getListWithPagingjp(cri);
 
 		list.forEach(quiz -> log.info(quiz));
 
