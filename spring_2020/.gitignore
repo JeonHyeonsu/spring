@@ -1,106 +1,105 @@
+# Created by https://www.toptal.com/developers/gitignore/api/java,eclipse
+# Edit at https://www.toptal.com/developers/gitignore?templates=java,eclipse
 
-# https://www.toptal.com/developers/gitignore/api/java,eclipse에 의해 생성
-# https://www.toptal.com/developers/gitignore?templates=java,eclipse에서 편집
-
-### 이클립스 ###
+### Eclipse ###
 .metadata
-큰 상자/
-tmp /
-* .tmp
-* .bak
-* .swp
-* ~ .nib
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
 local.properties
-.settings /
+.settings/
 .loadpath
 .recommenders
 
-## 대상 파일 무시
-표적/
+## ignoring target file
+target/
 
-.계획
+.project
 .classpath
-* /. git / *
+*/.git/*
 .git
 .deployables
 
 
-# 외부 도구 빌더
-.externalToolBuilders /
+# External tool builders
+.externalToolBuilders/
 
-# 로컬에 저장된 "Eclipse 실행 구성"
-*.시작하다
+# Locally stored "Eclipse launch configurations"
+*.launch
 
-# PyDev 특정 (Eclipse 용 Python IDE)
-* .pydevproject
+# PyDev specific (Python IDE for Eclipse)
+*.pydevproject
 
-# CDT 관련 (C / C ++ 개발 도구)
+# CDT-specific (C/C++ Development Tooling)
 .cproject
 
-# CDT- 자동 도구
+# CDT- autotools
 .autotools
 
-# 자바 주석 프로세서 (APT)
+# Java annotation processor (APT)
 .factorypath
 
-# PDT 관련 (PHP 개발 도구)
+# PDT-specific (PHP Development Tools)
 .buildpath
 
-# sbteclipse 플러그인
-.표적
+# sbteclipse plugin
+.target
 
-# Tern 플러그인
+# Tern plugin
 .tern-project
 
-# TeXlipse 플러그인
+# TeXlipse plugin
 .texlipse
 
 # STS (Spring Tool Suite)
 .springBeans
 
-# 코드 추천자
-.recommenders /
+# Code Recommenders
+.recommenders/
 
-# 주석 처리
-.apt_generated /
-.apt_generated_test /
+# Annotation Processing
+.apt_generated/
+.apt_generated_test/
 
-# Scala IDE 특정 (Eclipse 용 Scala 및 Java 개발)
+# Scala IDE specific (Scala & Java development for Eclipse)
 .cache-main
 .scala_dependencies
 .worksheet
 
-# 프로젝트 설명 파일을 무시하려면이 줄의 주석 처리를 제거하십시오.
-# 일반적으로이 파일은 빌드 / 종속성 구성이 포함 된 경우 추적됩니다.
-#.계획
+# Uncomment this line if you wish to ignore the project description file.
+# Typically, this file would be tracked if it contains build/dependency configurations:
+#.project
 
-### Eclipse 패치 ###
-# 스프링 부트 툴링
-.sts4-cache /
+### Eclipse Patch ###
+# Spring Boot Tooling
+.sts4-cache/
 
-### 자바 ###
-# 컴파일 된 클래스 파일
-*.수업
+### Java ###
+# Compiled class file
+*.class
 
-# 로그 파일
-*.로그
+# Log file
+*.log
 
-# BlueJ 파일
-* .ctxt
+# BlueJ files
+*.ctxt
 
-# 자바 용 모바일 도구 (J2ME)
-.mtj.tmp /
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
 
-# 패키지 파일 #
-*.항아리
-*.전쟁
-* .nar
-*.귀
-*.지퍼
-* .tar.gz
-* .rar
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
 
-# 가상 머신 충돌 로그, http://www.java.com/en/download/help/error_hotspot.xml 참조
-hs_err_pid *
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
 
-# https://www.toptal.com/developers/gitignore/api/java,eclipse의 끝
+# End of https://www.toptal.com/developers/gitignore/api/java,eclipse
