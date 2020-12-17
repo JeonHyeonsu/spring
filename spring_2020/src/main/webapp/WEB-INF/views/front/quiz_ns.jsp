@@ -21,18 +21,17 @@
                 </li>
                 
                 <li>
-                <button class="btnimg btnsize" ><input type="hidden" data-oper='question' name="question" value="jp0" >&nbsp;<img src="/resources/img/2.PNG"></button> : <span id="quiz1"></span></input>
+                <input type="hidden" data-oper='question' name="question"><button class="btnimg btnsize" >&nbsp;<img src="/resources/img/2.PNG"></button> : <span id="quiz1"></span></input>
                 </li>
                 
                 <li>
-                <button class="btnimg btnsize" ><input type="hidden" data-oper='question' name="question" value="jp0" >&nbsp;<img src="/resources/img/3.PNG"></button> : <span id="quiz2"></span></input>
+                <input type="hidden" data-oper='question' name="question"><button class="btnimg btnsize" >&nbsp;<img src="/resources/img/3.PNG"></button> : <span id="quiz2"></span></input>
                 </li>
                 
                 <li>
-                <button class="btnimg btnsize" ><input type="hidden" data-oper='question' name="question" value="jp0" >&nbsp;<img src="/resources/img/4.PNG"></button> : <span id="quiz3"></span></input>
+                <input type="hidden" data-oper='question' name="question"><button class="btnimg btnsize" >&nbsp;<img src="/resources/img/4.PNG"></button> : <span id="quiz3"></span></input>
                 </li>
                 </div>
-                
                </c:forEach>
             </table>
             
@@ -59,7 +58,7 @@
             <!--  Pagination 끝 -->
             
             <!-- 페이징 Form 시작 -->
-            <form id='actionForm' action="/front/quiz_ns" method='get'>
+            <form id='actionForm' action="/front/quiz_cm" method='get'>
             <input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
             <input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
             <input type='hidden' name='type' value='<c:out value="${ pageMaker.cri.type }"/>'>
@@ -67,8 +66,6 @@
             </form>
             <!-- 페이징 Form 끝 -->
             </article>
-            <button class="btn btn-success">확인</button>
-            <button class="btn btn-danger">취소</button>
         </div>
     </div>
 </section>
@@ -83,15 +80,6 @@ $(".paginate_button a").on("click", function(e) {
    actionForm.find("input[name='pageNum']").val($(this).attr("href"));
    actionForm.submit();
 });
-
-$(".btn-success").on("click",function(e) {
-    e.preventDefault();
-    actionForm.append("<input type='hidden' name='quiz_idx' value='" + <c:out value="${quiz.quiz_idx}" />   + "'>");
-    actionForm.append("<input type='hidden' name='id' value='" + <sec:authentication property="principal.username"/>  + "'>");
-    actionForm.append("<input type='hidden' name='question' value='" + $(this).attr("href")   + "'>");
-    actionForm.attr("action", "/front/quizCheck");
-    actionForm.submit();
- });
 
 var quizArray = new Array();
 <c:forEach items="${quiz}" var="quiz">

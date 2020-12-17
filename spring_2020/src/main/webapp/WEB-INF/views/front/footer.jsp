@@ -4,16 +4,16 @@
     <footer class="container">
         <div class="row">
             <div class="col-md-4 global-footer-links">
-                <h2>The PokÃ©mon Company</h2>
+                <h2>Quiz Rank</h2>
                 <ul>
                     <li>
-                        <a href="/pokemon-web/pages/notice">Notice</a>
+                        <a href="">랭킹</a>
                     </li>
                     <li>
-                        <a href="/pokemon-web/pages/devnote">Dev Note</a>
+                        <a href="">퀴즈제작</a>
                     </li>
                     <li>
-                        <a href="/pokemon-web/pages/contact">Contact</a>
+                        <a href="">회원 가입</a>
                     </li>
                 </ul>
             </div>

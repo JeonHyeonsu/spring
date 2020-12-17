@@ -13,9 +13,8 @@
                             <img src="/resources/img/twilight-wings-debut-169-en.jpg" alt="">
                         </div>
                         <div class="news-footer news-footer-yellow">
-                            <h3>Watch Episode 6 of <em>Pokémon: Twilight Wings</em> Now</h3>
-                            <p>Allister helps out some feuding friends in the latest episode of this animated series now
-                                on Pokémon TV and YouTube.</p>
+                            <h3>Enjoy the quiz. Now</h3>
+                            <p>Make a quiz and check it out. There are many quizzes prepared.</p>
                         </div>
                     </a>
                 </article>

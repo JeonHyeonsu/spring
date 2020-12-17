@@ -16,20 +16,23 @@
                 </div>
                 
                 <div>
-                <form>
-                <input type="radio"><button class="btnimg btnsize" >&nbsp;<img src="/resources/img/1.PNG"></button> : <span id="quiz0"></span></br>
- 
-                <input type="radio"><button class="btnimg btnsize" >&nbsp;<img src="/resources/img/2.PNG"></button> : <span id="quiz1"></span></br>
-
-                <input type="radio"><button class="btnimg btnsize" >&nbsp;<img src="/resources/img/3.PNG"></button> : <span id="quiz2"></span></br>
-
-                <input type="radio"><button class="btnimg btnsize" >&nbsp;<img src="/resources/img/4.PNG"></button> : <span id="quiz3"></span>
-                </form>
-
-
+                <li>
+                <button class="btnimg btnsize" ><input type="hidden" data-oper='question' name="question" value="jp0" >&nbsp;<img src="/resources/img/1.PNG"></button> : <span id="quiz0"></span></input>
+                </li>
+                
+                <li>
+                <input type="hidden" data-oper='question' name="question"><button class="btnimg btnsize" >&nbsp;<img src="/resources/img/2.PNG"></button> : <span id="quiz1"></span></input>
+                </li>
+                
+                <li>
+                <input type="hidden" data-oper='question' name="question"><button class="btnimg btnsize" >&nbsp;<img src="/resources/img/3.PNG"></button> : <span id="quiz2"></span></input>
+                </li>
+                
+                <li>
+                <input type="hidden" data-oper='question' name="question"><button class="btnimg btnsize" >&nbsp;<img src="/resources/img/4.PNG"></button> : <span id="quiz3"></span></input>
+                </li>
                 </div>
                </c:forEach>
-               
             </table>
             
             <!--  Pagination 시작 -->
@@ -63,8 +66,6 @@
             </form>
             <!-- 페이징 Form 끝 -->
             </article>
-            <button class="btn btn-success">확인</button>
-            <button class="btn btn-danger">취소</button>
         </div>
     </div>
 </section>
@@ -80,14 +81,6 @@ $(".paginate_button a").on("click", function(e) {
    actionForm.submit();
 });
 
-//$(".btn-success").on("click",function(e) {
-//    e.preventDefault();
-//   actionForm.append("<input type='hidden' name='quiz_idx' value='" + <c:out value="${quiz.quiz_idx}" />   + "'>");
-//    actionForm.append("<input type='hidden' name='id' value='" + <sec:authentication property="principal.username"/>  + "'>");
-//    actionForm.append("<input type='hidden' name='question' value='" + $(this).attr("href")   + "'>");
-//    actionForm.attr("action", "/front/quizCheck");
-//    actionForm.submit();
-// });
 var quizArray = new Array();
 <c:forEach items="${quiz}" var="quiz">
 
@@ -111,7 +104,6 @@ var str = [];
 for(var i = 0; i < 4; i++ ){
 	str += arr_shuffle[i];
 	document.getElementById("quiz"+ [i]).innerHTML = str;
-//	$("input[name=question0]").val(str);
 	str = [];
 }
 

@@ -65,18 +65,15 @@
 					role="button" data-toggle="dropdown" aria-haspopup="true"
 					aria-expanded="false"> Quiz </a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="/pokemon-web/pages/notice">日本語</a>
+						<a class="dropdown-item" href="/front/quiz_jp">日本語</a>
 						<!-- <div class="dropdown-divider"></div> -->
-						<a class="dropdown-item" href="/pokemon-web/pages/devnote">Nonsense</a>
-						<a class="dropdown-item" href="/pokemon-web/pages/devnote">Common
-							sense</a>
+						<a class="dropdown-item" href="/front/quiz_ns">Nonsense</a>
+						<a class="dropdown-item" href="/front/quiz_cm">Commonsense</a>
 					</div></li>
 				<li class="nav-item"><a class="nav-link"
-					href="/pokemon-web/pages/info">Quiz Make</a></li>
+					href="/front/userRegister">Quiz Make</a></li>
 				<li class="nav-item"><a class="nav-link"
-					href="/pokemon-web/pages/download">Ranking</a></li>
-				<li class="nav-item"><a class="nav-link"
-					href="/pokemon-web/pages/contact">Contact</a></li>
+					href="/front/rank">Ranking</a></li>
 
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"

@@ -10,17 +10,10 @@
 	<bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
 	<bean id="customUserDetailsService"	class="kr.ync.security.CustomUserDetailsService"></bean>
 	
-	
 	<security:http>
 		
-		 <!--<security:form-login login-page="/customLogin" />
+		<security:form-login login-page="/customLogin" />
 		<security:logout logout-url="/customLogout"	invalidate-session="true" delete-cookies="remember-me,JSESSION_ID" />
-		<security:remember-me data-source-ref="dataSource" token-validity-seconds="604800" />
-		<security:access-denied-handler ref="customAccessDenied" />-->
-		
-		 
-		<security:form-login login-page="/front/login" />
-		<security:logout logout-url="/front/logout"	invalidate-session="true" delete-cookies="remember-me,JSESSION_ID" />
 		<security:remember-me data-source-ref="dataSource" token-validity-seconds="604800" />
 		<security:access-denied-handler ref="customAccessDenied" />
 		

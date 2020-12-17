@@ -90,6 +90,7 @@ public class QuizController {
 	}
 	
 	@GetMapping("/userMadequiz")
+	@PreAuthorize("isAuthenticated()")
 	public void userMadequiz(CriteriaAdmin cri, Model model) {
 		log.info("list: " + cri);
 		

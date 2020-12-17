@@ -13,7 +13,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+    <title>Quiz Rank AdminPage</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -55,7 +55,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">SB Admin v2.0</a>
+                <a class="navbar-brand" href="index.html">Quiz Rank AdminPage</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -264,13 +264,13 @@
     <li class="divider"></li>
 		<sec:authorize access="isAuthenticated()">
 		 
-		<li id="logout"><a href="/customLogout"><i class="fa fa-sign-out fa-fw"></i>
+		<li id="logout"><a href="/front/logout"><i class="fa fa-sign-out fa-fw"></i>
 		    Logout</a></li>
 		</sec:authorize>
 		
 		<sec:authorize access="isAnonymous()">
 		
-		<li><a href="/customLogin"><i class="fa fa-sign-out fa-fw"></i>
+		<li><a href="/front/login"><i class="fa fa-sign-out fa-fw"></i>
 		    Login</a></li>
 		</sec:authorize>
 </ul>

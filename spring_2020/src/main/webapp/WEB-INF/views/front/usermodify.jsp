@@ -47,7 +47,7 @@
 						</div>
 
 						<div class="form-group">
-							<label>Text area</label> <label>Text area</label>
+							<label>Profile</label>
 							<textarea class="form-control" rows="3" name='profile'><c:out
 									value="${user.profile}" /></textarea>
 						</div>

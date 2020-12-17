@@ -8,7 +8,7 @@
 
 <div class="row">
   <div class="col-lg-12">
-    <h1 class="page-header">Board Register</h1>
+    <h1 class="page-header">Quiz Register</h1>
   </div>
   <!-- /.col-lg-12 -->
 </div>
@@ -18,7 +18,7 @@
   <div class="col-lg-12">
     <div class="panel panel-default">
 
-      <div class="panel-heading">Board Register</div>
+      <div class="panel-heading">Quiz Register</div>
       <!-- /.panel-heading -->
       <div class="panel-body">
 
@@ -57,9 +57,8 @@
                 value='<sec:authentication property="principal.username"/>' readonly="readonly">
           </div>
           
-          <button type="submit" class="btn btn-success">Submit
-            Button</button>
-          <button type="reset" class="btn btn-danger">Reset Button</button>
+          <button type="submit" class="btn btn-success">확인</button>
+          <button type="reset" class="btn btn-danger">리셋</button>
         </form>
 
       </div>

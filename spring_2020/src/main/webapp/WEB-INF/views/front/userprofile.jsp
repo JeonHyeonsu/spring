@@ -46,7 +46,7 @@ function getThumbFileName(fullFilePath) {
 					</div>
 
 					<div class="form-group">
-						<label>Text area</label>
+						<label>Profile</label>
 						<textarea class="form-control" rows="3" name='profile'
 							readonly="readonly"><c:out value="${user.profile}" /></textarea>
 					</div>

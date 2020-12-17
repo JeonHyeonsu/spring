@@ -32,8 +32,6 @@
                 <input type="hidden" data-oper='question' name="question"><button class="btnimg btnsize" >&nbsp;<img src="/resources/img/4.PNG"></button> : <span id="quiz3"></span></input>
                 </li>
                 </div>
-                <input type="hidden" name="quiz_idx" value="<c:out value="${quiz.quiz_idx}" />">
-               <input type="hidden" name="id" value="<sec:authentication property="principal.username"/>">
                </c:forEach>
             </table>
             
